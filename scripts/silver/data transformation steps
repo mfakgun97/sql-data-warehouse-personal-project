@@ -1,0 +1,48 @@
+
+
+Common data transformation steps (bronze → silver in a data warehouse)
+
+1. Removing duplicates
+Identifying records that appear more than once (e.g., same customer ID with multiple entries) and keeping only the most relevant version — usually the most recent one.
+
+2. Cleaning text values
+Stripping extra spaces, fixing inconsistent casing, removing stray characters that come from messy source systems or CSV exports.
+
+3. Standardizing/normalizing values
+Making sure the same concept is always represented the same way — e.g., gender stored as 'M', 'm', 'Male' all become one consistent value like 'Male'.
+
+4. Handling missing data (NULLs)
+Deciding what to do when a field is empty — replace with a default value like 'Unknown', leave as NULL intentionally, or flag the row for review.
+
+5. Data type conversion
+Converting raw text/strings into proper types — numbers stored as text become actual numbers, date-like strings become real date types. Often done "safely" so bad data doesn't crash the whole load, just gets flagged as NULL instead.
+
+6. Deriving new columns
+Calculating new values from existing ones — e.g., total sales from quantity × price, or age from a birthdate — values that don't exist raw in the source but are useful downstream.
+
+7. Splitting one column into multiple
+When a source system crams multiple pieces of information into a single field (like a product code that secretly contains a category + subcategory), breaking it apart into separate, usable columns.
+
+8. Merging/concatenating columns
+The reverse — combining separate fields (like first name + last name) into one usable field (full name).
+
+9. Filtering out invalid or garbage rows
+Removing rows with placeholder/nonsense values that source systems sometimes generate — impossible dates, negative quantities, obviously broken records.
+
+10. Date parsing and reformatting
+Converting inconsistent date formats (numbers, different string patterns) into a single standard date type, and validating that the date actually makes sense.
+
+11. Mapping short codes to readable values
+Source systems often store short internal codes (like 'CO', 'AC') — transformation translates these into human-readable categories for reporting.
+
+12. Reconciling inconsistent location/country naming
+Same country written multiple different ways across systems ('US', 'USA', 'United States') gets standardized to one canonical value.
+
+13. Historical tracking (Slowly Changing Dimensions)
+Deciding whether to simply overwrite a changed value, or keep a history of what it used to be — relevant when you want to track things like "this customer used to live in a different country."
+
+14. Restructuring data shape (pivoting/unpivoting)
+Turning rows into columns (or vice versa) — e.g., transforming yearly sales figures that were stored as separate rows into one row per customer with a column per year.
+
+15. Business rule validation
+Applying domain-specific rules — e.g., a transaction amount can't be negative, an account status must be one of a fixed set of allowed values — and flagging or excluding rows that break these rules.
