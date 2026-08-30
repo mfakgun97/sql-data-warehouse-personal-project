@@ -31,7 +31,7 @@ BEGIN
 		PRINT '================================================';
 
 		PRINT '------------------------------------------------';
-		PRINT 'Loading CRM Tables';
+		PRINT 'Loading CRM Tables'; --Customer Relationship Management
 		PRINT '------------------------------------------------';
 
 		SET @start_time = GETDATE();
@@ -81,7 +81,7 @@ BEGIN
 		PRINT '>> -------------';
 
 		PRINT '------------------------------------------------';
-		PRINT 'Loading ERP Tables';
+		PRINT 'Loading ERP Tables'; --Enterprise Resource Planning
 		PRINT '------------------------------------------------';
 		
 		SET @start_time = GETDATE();
