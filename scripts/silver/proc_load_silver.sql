@@ -34,7 +34,7 @@ BEGIN
 		-- Loading silver.crm_cust_info
         SET @start_time = GETDATE();
 		PRINT '>> Truncating Table: silver.crm_cust_info';
-		TRUNCATE TABLE silver.crm_cust_info;
+		TRUNCATE TABLE silver.crm_cust_info; -- TRUNCATE TABLE removes all rows from a table
 		PRINT '>> Inserting Data Into: silver.crm_cust_info';
 		INSERT INTO silver.crm_cust_info (
 			cst_id, 
