@@ -7,6 +7,7 @@ Script Purpose:
     It performs the following actions:
     - Truncates the bronze tables before loading data.
     - Uses the `BULK INSERT` command to load data from csv Files to bronze tables.
+	- TRY...CATCH is SQL Server's error-handling mechanism — it lets you run code that might fail, and if it does, catch the error and handle it gracefully instead of letting the whole script crash.
 
 Parameters:
     None. 
