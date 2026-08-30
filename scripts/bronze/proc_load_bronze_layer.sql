@@ -14,6 +14,11 @@ Parameters:
 
 Usage Example:
     EXEC bronze.load_bronze;
+-- ============================================================
+-- Execute this to run the load: truncates bronze tables and 
+-- bulk inserts fresh data from the source CSV files.
+-- Safe to re-run anytime you need to reload the data.
+-- ============================================================
 ===============================================================================
 */
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
