@@ -24,7 +24,7 @@ CREATE TABLE bronze.crm_cust_info (
 );
 GO
 
-IF OBJECT_ID('bronze.crm_prd_info', 'U') IS NOT NULL
+IF OBJECT_ID('bronze.crm_prd_info', 'U') IS NOT NULL --IF the table already exists, THEN drop (delete) it first.
     DROP TABLE bronze.crm_prd_info;
 GO
 
