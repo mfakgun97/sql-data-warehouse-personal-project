@@ -1,0 +1,7 @@
+DATA MODEL
+
+We will use Star Schema: fact in the middle and dimensions around it - (looks like a star)
+
+FACT - Quantitive information that represents events, How much?, How many?
+DIMENSION - Descriptive information that give context to your data, Who?, What?, Where? 
+--
